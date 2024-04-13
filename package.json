@@ -2,6 +2,7 @@
   "name": "hono-sst-cloudflare",
   "description": "Example project for deploying Hono using SST on Cloudflare Workers",
   "license": "ISC",
+  "type": "module",
   "scripts": {
     "dev": "sst dev --stage dev",
     "deploy": "sst deploy --stage production"
