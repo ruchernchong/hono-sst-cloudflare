@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
     "lib": ["esnext"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "types": ["@cloudflare/workers-types"]
   }
 }
