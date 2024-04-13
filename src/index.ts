@@ -8,6 +8,9 @@ app.get("/", async (c) => {
     .then((res) => res.json())
     .catch((error) => console.error(error));
 
+  c.header("Content-Type", "application/json");
+  c.header("Cache-Control", "public,max-age=86400");
+
   return c.body(JSON.stringify(response));
 });
 
@@ -19,6 +22,9 @@ app.get("/posts/:id", async (c) => {
     .then((res) => res)
     .then((res) => res.json())
     .catch((error) => console.error(error));
+
+  c.header("Content-Type", "application/json");
+  c.header("Cache-Control", "public,max-age=86400");
 
   return c.body(JSON.stringify(response));
 });
