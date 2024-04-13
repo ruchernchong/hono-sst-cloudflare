@@ -37,6 +37,8 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-pnpm-store-
 
+    - name: Install SST CLI
+      run: curl -fsSL https://ion.sst.dev/install | bash
     - name: Install dependencies
       run: pnpm install
     - run: pnpm run deploy
