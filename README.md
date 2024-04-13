@@ -4,11 +4,11 @@ This is an example repository for exploring [Hono](https://hono.dev) and deployi
 
 ```bash
 # Install the packages
-pnpm i
+bun i
 
 # Run the dev server locally
-pnpm dev
+bun dev
 
 # Deploy directly from local
-pnpm run deploy
+bun run deploy
 ```
