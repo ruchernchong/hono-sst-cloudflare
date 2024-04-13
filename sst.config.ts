@@ -9,10 +9,8 @@ export default $config({
     };
   },
   async run() {
-    const bucket = new sst.cloudflare.Bucket("HonoSSTBucket");
     const hono = new sst.cloudflare.Worker("HonoSSTAPI", {
       url: true,
-      link: [bucket],
       handler: "src/index.ts",
     });
 
