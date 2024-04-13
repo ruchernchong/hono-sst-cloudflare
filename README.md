@@ -10,5 +10,5 @@ pnpm i
 pnpm dev
 
 # Deploy directly from local
-pnpm deploy
+pnpm run deploy
 ```
