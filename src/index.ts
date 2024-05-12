@@ -14,7 +14,7 @@ app.get(
   "*",
   cache({
     cacheName: "hono-sst-cloudflare",
-    cacheControl: "max-age=86400",
+    cacheControl: "public, max-age=86400",
   }),
 );
 
