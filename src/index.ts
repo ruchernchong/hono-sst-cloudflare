@@ -18,7 +18,7 @@ app.get(
   }),
 );
 
-app.get("/posts", async (c) => {
+app.get("/", async (c) => {
   const response = await fetch("https://jsonplaceholder.typicode.com/posts")
     .then((res) => res)
     .then((res) => res.json())
@@ -27,7 +27,7 @@ app.get("/posts", async (c) => {
   return c.json(response);
 });
 
-app.get("/posts/:id", async (c) => {
+app.get("/:id", async (c) => {
   const id = c.req.param("id");
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${id}`,
