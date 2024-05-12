@@ -1,17 +1,30 @@
 import { Hono } from "hono";
+import { cache } from "hono/cache";
+import { logger } from "hono/logger";
+import { secureHeaders } from "hono/secure-headers";
+import { timing } from "hono/timing";
 
 const app = new Hono();
 
-app.get("/", async (c) => {
+app.use(logger());
+app.use(secureHeaders());
+app.use(timing());
+
+app.get(
+  "*",
+  cache({
+    cacheName: "hono-sst-cloudflare",
+    cacheControl: "max-age=86400",
+  }),
+);
+
+app.get("/posts", async (c) => {
   const response = await fetch("https://jsonplaceholder.typicode.com/posts")
     .then((res) => res)
     .then((res) => res.json())
     .catch((error) => console.error(error));
 
-  c.header("Content-Type", "application/json");
-  c.header("Cache-Control", "public,max-age=86400");
-
-  return c.body(JSON.stringify(response));
+  return c.json(response);
 });
 
 app.get("/posts/:id", async (c) => {
@@ -23,10 +36,7 @@ app.get("/posts/:id", async (c) => {
     .then((res) => res.json())
     .catch((error) => console.error(error));
 
-  c.header("Content-Type", "application/json");
-  c.header("Cache-Control", "public,max-age=86400");
-
-  return c.body(JSON.stringify(response));
+  return c.json(response);
 });
 
 export default app;

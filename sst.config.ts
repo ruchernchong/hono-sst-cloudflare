@@ -9,9 +9,9 @@ export default $config({
     };
   },
   async run() {
-    const hono = new sst.cloudflare.Worker("Api", {
-      url: true,
+    const hono = new sst.cloudflare.Worker("Hono", {
       handler: "src/index.ts",
+      url: true,
     });
 
     return {
