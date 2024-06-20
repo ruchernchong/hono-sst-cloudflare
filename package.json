@@ -4,8 +4,8 @@
   "license": "ISC",
   "type": "module",
   "scripts": {
-    "dev": "sst dev --stage development",
-    "deploy": "sst deploy --stage production"
+    "dev": "sst dev --stage dev",
+    "deploy": "sst deploy --stage prod"
   },
   "dependencies": {
     "hono": "^4.2.3",
